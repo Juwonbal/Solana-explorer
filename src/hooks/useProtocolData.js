@@ -17,6 +17,7 @@ export default function useProtocolData() {
           try {
             const res = await fetch(url);
             const json = await res.json();
+            console.log(`Fetched data for ${key}:`, json);
             return [key, { tvl: json.chainTvls?.Solana || json.tvl || 0 }];
           } catch (err) {
             console.error(`Error fetching ${key}:`, err);
