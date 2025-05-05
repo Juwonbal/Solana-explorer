@@ -3,7 +3,7 @@
 import { Canvas, useFrame } from '@react-three/fiber';
 import { OrbitControls, Html, Stars } from '@react-three/drei';
 import { useRef, useState } from 'react';
-import useProtocolData from './hooks/useProtocolData';
+import useProtocolData from './hooks/useProtocolData.js';
 
 function GlowingMesh({ position, geometry, color, label, tvl, category, activeCategories, url }) {
   const meshRef = useRef();
