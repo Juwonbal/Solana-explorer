@@ -4,7 +4,7 @@ import { Canvas, useFrame } from '@react-three/fiber';
 import { OrbitControls, Html, Stars } from '@react-three/drei';
 import { useRef, useState } from 'react';
 import useProtocolData from './hooks/useProtocolData.js';
- 
+
 if (!jupiter || !tensor || !helium) {
   return (
     <div className="text-white p-6">
@@ -12,9 +12,6 @@ if (!jupiter || !tensor || !helium) {
     </div>
   );
 }
-export default function App() {
-  const data = useProtocolData();
-  console.log('Protocol Data:', data);
 
 function GlowingMesh({ position, geometry, color, label, tvl, category, activeCategories, url }) {
   const meshRef = useRef();
