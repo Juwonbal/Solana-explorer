@@ -5,6 +5,7 @@ import { OrbitControls, Html, Stars } from '@react-three/drei';
 import { useRef, useState } from 'react';
 import useProtocolData from './hooks/useProtocolData.js';
 
+
 function GlowingMesh({ position, geometry, color, label, tvl, category, activeCategories, url }) {
   const meshRef = useRef();
   const [hovered, setHovered] = useState(false);
@@ -60,6 +61,10 @@ function GlowingMesh({ position, geometry, color, label, tvl, category, activeCa
 
 export default function SolanaWorldExplorer() {
   const { jupiter, tensor, helium } = useProtocolData();
+  const [activeCategories, setActiveCategories] = useState(['DeFi', 'NFT', 'DePIN']);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [sortBy, setSortBy] = useState('name');
+
   if (!jupiter || !tensor || !helium) {
     return (
       <div className="text-white p-6">
@@ -67,9 +72,6 @@ export default function SolanaWorldExplorer() {
       </div>
     );
   }
-  const [activeCategories, setActiveCategories] = useState(['DeFi', 'NFT', 'DePIN']);
-  const [searchQuery, setSearchQuery] = useState('');
-  const [sortBy, setSortBy] = useState('name');
 
   const toggleCategory = (cat) => {
     setActiveCategories((prev) =>
